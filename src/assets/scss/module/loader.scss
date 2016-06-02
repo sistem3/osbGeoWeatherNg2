@@ -1,0 +1,15 @@
+[override] osb-geo-weather {
+  .weather-loader {
+    width: 120px;
+    min-height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    z-index: 2;
+    
+    i {
+      color: $color-white;
+      font-size: 50px;
+    }
+  }
+}

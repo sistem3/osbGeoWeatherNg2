@@ -1,0 +1,37 @@
+[override] osb-geo-weather {
+  .forecast-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+  }
+
+  .forecast-list li {
+    width: 25%;
+    display: inline-block;
+    text-transform: capitalize;
+    background-color: rgba($color-black, 0.5);
+    padding: 10px;
+    border-bottom: 1px solid $color-black;
+    border-right: 1px solid $color-black;
+
+    @media (max-width: 380px) {
+      width: 100%;
+    }
+
+    @media (min-width: 380px) and (max-width: 650px) {
+      width: 50%;
+    }
+
+    @media (min-width: 651px) and (max-width: 990px) {
+      width: 33.33333%;
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
