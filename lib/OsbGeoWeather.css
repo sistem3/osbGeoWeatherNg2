@@ -1,10 +1,13 @@
 [override] osb-geo-weather {
   padding: 20px;
-  position: relative;
   box-sizing: border-box; }
+  [override] osb-geo-weather h2, [override] osb-geo-weather h3 {
+    padding-left: 10px; }
   [override] osb-geo-weather .weather {
     position: relative;
     z-index: 2; }
+    [override] osb-geo-weather .weather.forecast-data h3, [override] osb-geo-weather .weather.forecast-data h4, [override] osb-geo-weather .weather.forecast-data p {
+      padding-left: 10px; }
 
 [override] osb-geo-weather .background {
   width: 100%;
@@ -113,7 +116,8 @@
   [override] osb-geo-weather .forecast-list li:last-child {
     border-right: 0; }
   [override] osb-geo-weather .forecast-list li h3 {
-    margin-top: 0; }
+    margin-top: 0;
+    padding-left: 0; }
 
 [override] osb-geo-weather .weather-loader {
   width: 120px;
