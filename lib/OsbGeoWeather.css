@@ -1,15 +1,20 @@
-[override] osb-geo-weather {
-  padding: 20px;
-  box-sizing: border-box; }
-  [override] osb-geo-weather .osb-geo-weather-holder {
-    position: relative; }
-  [override] osb-geo-weather h2, [override] osb-geo-weather h3 {
+[override] osb-geo-weather .osb-geo-weather-holder {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 90px;
+  padding-bottom: 10px; }
+
+[override] osb-geo-weather h2, [override] osb-geo-weather h3 {
+  padding-left: 10px; }
+
+[override] osb-geo-weather h3 {
+  margin-top: 10px; }
+
+[override] osb-geo-weather .weather {
+  position: relative;
+  z-index: 2; }
+  [override] osb-geo-weather .weather.forecast-data h3, [override] osb-geo-weather .weather.forecast-data h4, [override] osb-geo-weather .weather.forecast-data p {
     padding-left: 10px; }
-  [override] osb-geo-weather .weather {
-    position: relative;
-    z-index: 2; }
-    [override] osb-geo-weather .weather.forecast-data h3, [override] osb-geo-weather .weather.forecast-data h4, [override] osb-geo-weather .weather.forecast-data p {
-      padding-left: 10px; }
 
 [override] osb-geo-weather .background {
   width: 100%;
@@ -80,6 +85,7 @@
 
 [override] osb-geo-weather h2 {
   margin-top: 0;
+  padding-top: 10px;
   position: relative;
   z-index: 2; }
 
