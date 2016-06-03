@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
+import { Http, HTTP_PROVIDERS, Headers, RequestOptions } from '@angular/http';
 import {OsbGeoWeather} from 'osb-geo-weather/components';
 
 @Component({
@@ -13,4 +14,4 @@ export class Sandbox {
     }
 }
 
-bootstrap(Sandbox);
+bootstrap(Sandbox, HTTP_PROVIDERS);
