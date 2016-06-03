@@ -1,7 +1,10 @@
 [override] osb-geo-weather {
   padding: 20px;
-  position: relative;
   box-sizing: border-box;
+
+  .osb-geo-weather-holder {
+    position: relative;
+  }
 
   h2, h3 {
     padding-left: 10px;
