@@ -4,3 +4,6 @@
 @import 'theme/typography';
 @import 'module/forecast';
 @import 'module/loader';
+
+$wi-path:  "./vendor/weather-icons/font" !default;
+@import '../../../node_modules/weather-icons/sass/weather-icons.min';
