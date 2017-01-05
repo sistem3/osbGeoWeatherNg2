@@ -21,29 +21,31 @@ export class OsbGeoWeather {
         this.forecastLoading = true;
         this.googleMapsApiBase = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
         this.googleMapsApiKey  = 'AIzaSyDI-MPoDrmVJnK2qAYtDZr9aR9pOzHCSiI';
-        this.weatherApiBase = 'http://api.openweathermap.org/data/2.5/';
-        this.weatherApiKey = '893dd0afe360cf42975f84a9b97cd4ec';
+        this.weatherApiBase = 'https://api.apixu.com/v1/';
+        this.weatherApiKey = 'cb61805cd0e54021b5c115809170501';
         this.weatherData = {};
         this.forecastData = {};
         this.getLocation();
     }
     // Get Today's weather from openWeatherApi
     getTodayWeather(location) {
-        this.http.get(this.weatherApiBase + 'weather?q=' + location + '&units=metric&APPID=' + this.weatherApiKey)
+        this.http.get(this.weatherApiBase + 'current.json?key=' +  this.weatherApiKey + '&q=' + location)
             .subscribe(response => this.setTodayWeather(response));
     }
     // Set Today's weather
     setTodayWeather(weather) {
+        console.log(weather.json());
         this.weatherData = weather.json();
         this.isLoading = false;
     }
     // Get Weather forecast from openWeatherApi
     getWeatherForecast(location) {
-        this.http.get(this.weatherApiBase + 'forecast/daily?q=' + location + '&units=metric&APPID=' + this.weatherApiKey)
+        this.http.get(this.weatherApiBase + 'forecast.json?key=' +  this.weatherApiKey + '&q=' + location + '&days=10')
             .subscribe(response => this.setWeatherForecast(response));
     }
     // Set Weather forecast
     setWeatherForecast(forecast) {
+        console.log(forecast.json());
         this.forecastData = forecast.json();
         this.forecastLoading = false;
     }
@@ -51,7 +53,7 @@ export class OsbGeoWeather {
     getLocation() {
         if ('geolocation' in navigator) {
             //console.log('Has geolocation');
-            var holder = this;
+            let holder = this;
             // Get Location from Google if available else use default
             navigator.geolocation.getCurrentPosition(function(position) {
                 holder.http.get(holder.googleMapsApiBase + position.coords.latitude + ',' + position.coords.longitude + '&key=' + holder.googleMapsApiKey)
@@ -63,9 +65,13 @@ export class OsbGeoWeather {
     }
     // Set location
     setLocation(location) {
-        var data = location.json();
-        this.getTodayWeather(data.results[0].address_components[3].long_name);
-        this.getWeatherForecast(data.results[0].address_components[3].long_name);
+        let data = location.json();
+        this.getTodayWeather(data.results[0].address_components[2].long_name);
+        this.getWeatherForecast(data.results[0].address_components[2].long_name);
+    }
+
+    getDate(date) {
+        return new Date(date);
     }
 
 }
